@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(#24292e, #0366d6);
+        pointer-events: none;
+        animation: gradientAnimation 10s infinite linear;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        color: #fff;
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .search-form {
+        display: flex;
+        justify-content: center;
+      }
+
+      .search-input {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 300px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        outline: none;
+        border-radius: none;
+        background-color: #9fcbfdfc;
+        color: #021753;
+      }
+
+      .search-button {
+        background-color: #0366d6;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .search-button:hover {
+        background-color: #005cc5;
+      }
+      .item-card {
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width:80%;
+        margin: 10px auto;
+      }
+
+      .item-card h2 {
+        font-size: 24px;
+        margin-top: 0;
+      }
+
+      .item-card p {
+        margin-bottom: 10px;
+      }
+
+      .item-card img {
+        margin-bottom: 10px;
+      }
+
+      .item-card a {
+        display: inline-block;
+        background-color: #0366d6;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .item-card a:hover {
+        background-color: #005cc5;
+      }
+    </style>
+    <title>Resource Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <h1>Hello, what resource are you looking for?</h1>
+      <form class="search-form" action="/items">
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Tell me..."
+          name="q"
+        />
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Items</h1>
+      <% items.forEach(function(item) { %>
+        <div class="item-card">
+          <h2><%= item.title %></h2>
+          <p><%= item.description %></p>
+          <img src="<%= item.imageUrl %>" alt="Item Image" width="20%"/>
+          <p>Tag: <%= item.tag %></p>
+          <a href="<%= item.link %>">Visit Link</a>
+        </div>
+        <% }); %>
+    </div>
+  </body>
+</html>

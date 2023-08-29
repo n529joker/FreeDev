@@ -1,0 +1,31 @@
+{
+  "name": "webscraping",
+  "version": "1.0.0",
+  "description": "Web Scraping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "scraping"
+  ],
+  "author": "NJR",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.1",
+    "cheerio": "^1.0.0-rc.12",
+    "ejs": "^3.1.9",
+    "json2csv": "^6.0.0-alpha.2",
+    "morgan": "^1.10.0",
+    "pretty": "^2.0.0",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3",
+    "nodemon": "^3.0.1"
+  }
+}
