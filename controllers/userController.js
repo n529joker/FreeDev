@@ -1,16 +1,15 @@
 const { User } = require("../models/model");
 const mongoose = require("mongoose");
 
-const {categories} = require("../controllers/itemController");
 
 module.exports.signup_get = (req, res) => {
-  res.json({ categories });
+  
 };
 
 module.exports.signup_post = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password, role } = req.body;
   try {
-    let user = await User.create({ username, email, password });
+    let user = await User.create({ email, password, role });
     res.status(201).json({ user: user._id });
   } catch (err) {
     console.error(err.message);

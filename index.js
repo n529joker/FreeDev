@@ -2,8 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const ejs = require("ejs");
-const mongoose = require("mongoose");
-const { User, Item } = require("./models/model");
+const mongoose = require("mongoose")
 const user_data_routes = require("./routes/user_data_Routes");
 const app = express();
 
